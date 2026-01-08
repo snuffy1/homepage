@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Kitchen | Lyon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    
+    <style>
+        .z-60 { z-index: 60; }
+        html.lenis { height: auto; }
+        .lenis-smooth { scroll-behavior: auto !important; }
+    </style>
+</head>
+<body class=" antialiased">
+<!-- navbar -->
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 bg-[#F7F7F7] transition-all duration-1000 ease-in-out"
+>
+  <div class="max-w-7xl mx-auto px-6 md:px-0 py-6 ">
+    <div class="flex items-center justify-between">
+      
+      <!-- Logo (Left) -->
+      <div class="flex items-center">
+        <img
+          src="/logo/logo.png"
+          alt="Logo"
+          class="h-12 md:h-14 w-auto object-contain"
+        />
+      </div>
+
+      <!-- Navigation (Right) -->
+      <nav class="hidden 2xl:flex items-center gap-10 cursor-pointer text-lg">
+       <a href="/" class="group block w-fit relative">
+                        <span class="block">Home</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-10 transition-all duration-500 absolute"></div>
+                    </a>
+        <a href="/" class="group block w-fit relative">
+                        <span class="block">About</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-10 transition-all duration-500 absolute"></div>
+                    </a>
+        <a href="/" class="group block w-fit relative">
+                        <span class="block">Services</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-14 transition-all duration-500 absolute"></div>
+                    </a>
+        <a href="/" class="group block w-fit relative">
+                        <span class="block">Welcome</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-16 transition-all duration-500 absolute" ></div>
+                    </a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+
+    <button id="menu-toggle" class="fixed top-6  right-6 md:right-12 z-60 p-3 bg-white group overflow-hidden shadow-sm">
+        <div class="absolute inset-0 bg-black transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+        <div class="relative z-10 text-gray-800 group-hover:text-white transition-colors duration-300">
+            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </div>
+    </button>
+
+    <div id="full-menu" class="fixed inset-0 bg-white z-60 overflow-y-auto md:overflow-hidden p-6 md:p-16 flex items-start md:items-center justify-center translate-y-full">
+    <button id="menu-close" class="fixed top-6 md:top-10 right-6 md:right-12 z-60 p-3 bg-white group overflow-hidden shadow-sm">
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+
+    <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 items-center">       
+        <div id="image" class=" hidden lg:block w-1/3">
+            <img src="/projects/project1.jpg" alt="Kitchen Interior" class="w-full h-[500px] lg:h-[650px] object-cover shadow-xl">
+        </div>
+
+        <div class="w-full lg:w-2/3">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">           
+                <nav id="first" class="flex flex-col space-y-4 md:space-y-6">   
+                     <a href="/" class="group block w-fit">
+                        <span class="block">Welcome</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Achievements</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Series</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Atmospheres</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Contact</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                </nav>
+
+                <div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10">
+                    <div id="second" class="border-l border-gray-300 pl-4 space-y-3">
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2">Company</span>
+                         <a href="#" class="group block w-fit">
+                            <span>Our brands</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>About us</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Showrooms</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+                    <div id="third" class="border-l border-gray-300 pl-4 space-y-3">
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2">Services</span>
+                           <a href="#" class="group block w-fit">
+                            <span>Your project</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Customization</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Layout</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+                    <div id="four" class="border-l border-gray-300 pl-4 space-y-3">
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2">Social</span>
+                         <a href="#" class="group block w-fit">
+                            <span>Instagram</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Facebook</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Houzz</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+
+                    <div id="mail" class="col-span-2 md:col-span-3 mt-4 md:mt-8">        
+                        <a href="mailto:bonjour@itkitchenLyon.com" class="block text-2xl sm:text-3xl  font-light text-red-800  break-words">
+                            bonjour@itkitchenLyon.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero-section -->
+    <section id="hero-section" class="relative w-full h-screen overflow-hidden ">
+            <div id="hero-frame" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen overflow-hidden">
+                <video id="hero-video" class="w-full h-full object-cover" muted loop playsinline preload="metadata">
+                    <source src="/videos/video-cuisiniste-lyon-italian-kitchen.mp4" type="video/mp4">
+                </video>
+            </div>
+    </section>
+
+
+    <!-- description-section -->
+    <section id="description-section" class="py-24 px-4 bg-white opacity-0 translate-y-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-12">
+                <h1 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Italian Kitchen
+                </h1>
+                <p class="text-sm uppercase tracking-widest text-gray-500 font-sans">
+                    CUISINISTE LYON
+                </p>
+            </div>
+
+            <div class="mb-16">
+                <p class="text-lg md:text-xl text-gray-600 font-light max-w-2xl leading-loose mx-auto">
+                    Italian Kitchen c'est avant tout la passion pour
+                    l'aménagement sans compromis. Des projets intemporels avec un
+                    accompagnement sur mesure. Nous sommes en challenge permanent pour
+                    vous proposer un choix unique, le meilleur des cuisines italiennes,
+                    une sélection en adéquation avec vos envies et votre environnement.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+                <img
+                    src="photos/four.png"
+                    alt="Zecchinon"
+                    class="max-w-full h-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    style="width: 640px;"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- projects -->
+
+    <section id="projects-section" class="px-4 sm:px-8 py-16 sm:py-24 bg-white max-w-7xl mx-auto min-h-screen relative">
+        <div class="absolute z-10 -mt-10">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-wide">PROJETS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            <div class="project-item lg:col-span-7 overflow-hidden order-1">
+                <div id="big-img-container">
+                    <img id="active-project-img" src="projects/project1.jpg" alt="Active Project" class="w-full h-auto object-cover">
+                </div>
+            </div>
+
+            <div id="project-grid" class="project-item lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 order-2">
+                <div class="project-thumb cursor-pointer" data-big="projects/project1.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/project1.jpg" alt="Project 1" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        MARBRE / VERT
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-full"></span>
+                    </p>
+                </div>
+
+                <div class="project-thumb cursor-pointer" data-big="projects/project2.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/project2.jpg" alt="Project 2" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        INTÉRIEUR COMPLET
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+                <div class="project-thumb cursor-pointer" data-big="projects/project3.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/project3.jpg" alt="Project 2" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        WHITE & WOOD
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+                <div class="project-thumb cursor-pointer" data-big="projects/project4.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/project4.jpg" alt="Project 4" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        BLACK & WOOD
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- reverseprojects -->
+
+    <section id="projects-section-2" class="px-4 sm:px-8 py-16 sm:py-24 bg-white max-w-7xl mx-auto min-h-screen relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            
+            <div class="project-item lg:col-span-7 overflow-hidden order-1 lg:order-2">
+                <div id="big-img-container-2">
+                    <img id="active-project-img-2" src="projects/secondproject1.jpg" alt="Active Project" class="w-full h-auto object-cover">
+                </div>
+            </div>
+
+            <div id="project-grid-2" class="project-item lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 order-2 lg:order-1">
+                <div class="project-thumb-2 cursor-pointer" data-big="projects/secondproject1.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/secondproject1.jpg" alt="Second Project 1" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        MARBRE / VERT
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-full"></span>
+                    </p>
+                </div>
+
+                <div class="project-thumb-2 cursor-pointer" data-big="projects/secondproject2.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/secondproject2.jpg" alt="Second Project 2" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        INTÉRIEUR COMPLET
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+
+                <div class="project-thumb-2 cursor-pointer" data-big="projects/secondproject3.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/secondproject3.jpg" alt="Second Project 3" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        WHITE & WOOD
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+
+                <div class="project-thumb-2 cursor-pointer" data-big="projects/secondproject4.jpg">
+                    <div class="overflow-hidden">
+                        <img src="projects/secondproject4.jpg" alt="Second Project 4" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <p class="mt-3 text-xs tracking-widest relative inline-block">
+                        BLACK & WOOD
+                        <span class="indicator absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300 w-0 opacity-0"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- achievements -->
+
+    <div class="py-12 bg-white">
+    <a href="achievements" id="achievements-link" class="group flex items-end justify-end gap-10 max-w-7xl mx-auto px-4 sm:px-8">
+        <span class="relative inline-block">
+        <span class="block text-[28px] md:text-[34px] tracking-[0.18em] uppercase transition-colors duration-200 text-black group-0">
+            ALL OUR ACHIEVEMENTS
+        </span>
+
+        <span id="achievement-line" class="mt-2 block h-px bg-black w-full origin-left scale-x-100 transition-transform duration-300 ease-out group-hover:scale-x-50"></span>
+        </span>
+
+        <span class="relative text-red-600 text-2xl md:text-4xl leading-none">
+        <span class="block transition-opacity duration-150 group-hover:opacity-0">
+            ↗
+        </span>
+        <span class="absolute inset-0 block opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+            →
+        </span>
+        </span>
+    </a>
+    </div>
+
+    <!-- carousel  -->
+
+    <section class="bg-white hidden lg:block py-20">
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <h2 class="text-6xl md:text-7xl tracking-[0.08em] uppercase absolute -top-10 left-6 md:left-10 lg:left-16 z-40 font-semibold">
+                News
+            </h2>
+        </div>
+
+        <div class="relative mt-4">
+            <div id="carousel-viewport" class="relative max-w-7xl mx-auto h-[80vh] min-h-[70vh] overflow-hidden">
+                
+                <div id="curr-slide" class="absolute inset-0 z-10">
+                    <img src="projects/project1.jpg" alt="Slide 1" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center px-6">
+                        <div class="bg-white/85 backdrop-blur-sm px-10 py-8 text-center">
+                            <p class="slide-title text-xl md:text-2xl tracking-[0.18em] uppercase text-gray-900">“PROJECT TITLE”</p>
+                            <p class="slide-subtitle mt-2 text-sm tracking-wide text-gray-600">Subtitle text here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="next-slide" class="absolute inset-0 z-0 opacity-0 pointer-events-none">
+                    <img src="" alt="Next Slide" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center px-6">
+                        <div class="bg-white/50 px-10 py-8 text-center">
+                            <p class="slide-title text-xl md:text-2xl tracking-[0.18em] uppercase text-gray-900">“NEXT TITLE”</p>
+                            <p class="slide-subtitle mt-2 text-sm tracking-wide text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 right-6 z-20">
+                    <div class="flex overflow-hidden bg-white/70 backdrop-blur-sm shadow-sm">
+                        <button class="group flex items-center gap-3 px-6 py-3 text-sm font-medium text-gray-800 hover:bg-[#BA384A] hover:text-white transition-colors">
+                            <span>Discover the project</span>
+                        </button>
+                        <div class="w-px bg-gray-300"></div>
+                        <button class="group flex items-center gap-3 px-6 py-3 text-sm font-medium text-gray-800 hover:bg-[#BA384A] hover:text-white transition-colors">
+                            <span>Read an excerpt</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="carousel-next-btn" aria-label="Next news" class="absolute right-10 top-1/2 -translate-y-1/2 h-16 w-16 bg-white flex items-center justify-center transition hover:bg-gray-50 z-30 shadow-md">
+                <span class="text-5xl leading-none text-gray-300 select-none">›</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- series  -->
+    <section id="series-section" class="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 -mb-4">
+                <h2 id="series-title" class="text-6xl font-semibold tracking-wide opacity-0">Series</h2>
+            </div>
+
+            <div id="series-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/project1.jpg" alt="Series 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            VERRIÈRE
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/project2.jpg" alt="Series 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                        WHITE & WOOD
+
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/project3.jpg" alt="Series 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            BLACK & WOOD
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/project4.jpg" alt="Series 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            MARBRE
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/secondproject1.jpg" alt="Series 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            BLACK, WHITE & WOOD 
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/secondproject2.jpg" alt="Series 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            TIMELESS
+
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/secondproject3.jpg" alt="Series 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            BLEU
+
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+                <div class="series-item group cursor-pointer opacity-0">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+                        <img src="projects/secondproject4.jpg" alt="Series 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm md:text-base font-medium text-gray-800 tracking-wider uppercase group-hover:text-gray-600 transition-colors duration-300">
+                            CIMENT
+                        </h3>
+                        <div class="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- brands  --> 
+
+    <section id="brands-section" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-4xl md:text-5xl tracking-[0.25em] uppercase mb-16">
+                NOS MARQUES
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-7 relative aspect-[4/3] overflow-hidden group">
+                    <img
+                        src="brands/zecchinon-cuisines-italiennes.jpg"
+                        alt="Zecchinon"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                </div>
+
+                <div class="lg:col-span-5 grid grid-cols-2 gap-10">
+                    <div class="relative aspect-square overflow-hidden group">
+                        <img src="brands/Aster.jpg" alt="Aster" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+                    </div>
+                    <div class="relative aspect-square overflow-hidden group">
+                        <img src="brands/Armony.jpg" alt="Armony" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+                    </div>
+                    <div class="relative aspect-square overflow-hidden group">
+                        <img src="brands/ronda-design.jpg" alt="Ronda Design" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+                    </div>
+                    <div class="relative aspect-square overflow-hidden group">
+                        <img src="brands/colico.jpg" alt="Colico" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- process  -->
+    <section id="process-section" class="bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+            <h2 class="text-5xl md:text-6xl font-semibold tracking-[0.18em] uppercase">
+                PROCESS
+            </h2>
+
+            <div class="mt-10 border-t border-gray-200"></div>
+
+            <div class="divide-y divide-gray-200">
+                <div class="process-row grid grid-cols-1 md:grid-cols-12 gap-8 py-12 items-start opacity-0">
+                    <div class="md:col-span-1">
+                        <div class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 21v-7m0-4V3m8 18v-9m0-4V3m8 18v-5m0-4V3M1 14h6m2-3h6m2 5h6"></path></svg>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <h3 class="text-sm md:text-xl font-semibold tracking-[0.18em] uppercase text-gray-900">PROJECT DEFINITION</h3>
+                    </div>
+                    <div class="md:col-span-7">
+                        <p class="text-[13px] md:font-semibold leading-6 text-gray-500 max-w-3xl">
+                            We believe that a quality project begins with attentive listening. Before proposing an exclusive design, we take the time to discuss your specific needs, tastes, and constraints.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-row grid grid-cols-1 md:grid-cols-12 gap-8 py-12 items-start opacity-0">
+                    <div class="md:col-span-1">
+                        <div class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <h3 class="text-sm md:text-xl font-semibold tracking-[0.18em] uppercase text-gray-900">PROPOSALS & PLANS</h3>
+                    </div>
+                    <div class="md:col-span-7">
+                        <p class="text-[13px] md:font-semibold leading-6 text-gray-500 max-w-3xl">
+                            To bring your project to life, we offer a multi-stage presentation: plans on a drawing board, a 3D simulation, and a guided tour of our showroom.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-row grid grid-cols-1 md:grid-cols-12 gap-8 py-12 items-start opacity-0">
+                    <div class="md:col-span-1">
+                        <div class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <h3 class="text-sm md:text-xl font-semibold tracking-[0.18em] uppercase text-gray-900">HOME SAMPLES</h3>
+                    </div>
+                    <div class="md:col-span-7">
+                        <p class="text-[13px] md:font-semibold leading-6 text-gray-500 max-w-3xl">
+                            In this stage, we refine the details of your project by exploring materials in-store and creating a custom mood board.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-row grid grid-cols-1 md:grid-cols-12 gap-8 py-12 items-start opacity-0">
+                    <div class="md:col-span-1">
+                        <div class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <h3 class="text-sm md:text-xl font-semibold tracking-[0.18em] uppercase text-gray-900">CONSTRUCTION SITE MANAGEMENT</h3>
+                    </div>
+                    <div class="md:col-span-7">
+                        <p class="text-[13px] md:font-semibold leading-6 text-gray-500 max-w-3xl">
+                            Precise measurements, meticulous order preparation, and orchestrated delivery. Installation is carried out by our top professionals to guarantee optimal quality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200"></div>
+        </div>
+    </section>
+
+    <!-- footer  -->
+    <footer class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-8 py-24">
+        <div class="flex justify-center mb-24">
+            <img
+                src="logo/logo.png"
+                alt="Italian Kitchen"
+                class="h-20 w-auto object-contain"
+            />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="md:col-span-4">
+                <nav class="space-y-6 text-3xl md:text-4xl font-light text-gray-900">
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Welcome</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Achievements</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Series</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Atmospheres</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                    <a href="/" class="group block w-fit">
+                        <span class="block">Contact</span>
+                        <div class="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="md:col-span-8 mt-16 md:mt-0">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-[15px] text-gray-900">
+                    <div class="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
+                        <a href="#" class="group block w-fit">
+                            <span>Our brands</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>About us</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Showrooms</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+
+                    <div class="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
+                        <a href="#" class="group block w-fit">
+                            <span>Your project</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Customization</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Layout</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+
+                    <div class="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
+                        <a href="#" class="group block w-fit">
+                            <span>Instagram</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Facebook</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                        <a href="#" class="group block w-fit">
+                            <span>Houzz</span>
+                            <div class="mt-2 w-0 h-px bg-red-300 group-hover:w-16 transition-all duration-500"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-16 flex justify-center md:justify-start">
+                    <a href="mailto:bonjour@itkitchenlyon.com" class="text-red-600 text-2xl lg:text-5xl font-light tracking-wide hover:opacity-80 transition">
+                        bonjour@itkitchenlyon.com
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 flex justify-center text-xs md:text-sm text-gray-600 border-t border-gray-200 pt-8">
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="#" class="hover:text-gray-900 transition">Legal notice</a>
+                <span class="text-gray-400">|</span>
+                <a href="#" class="hover:text-gray-900 transition">Terms of Use &amp; Personal Data</a>
+                <span class="text-gray-400">|</span>
+                <a href="#" class="hover:text-gray-900 transition">Website creation</a>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+
+    <div id="floating-contact" class="fixed bottom-0 right-6 md:right-8 z-50 transition-all duration-500 opacity-0 translate-y-4 pointer-events-none">
+        <a href="tel:0679963753" class="flex items-center bg-white text-black px-4 py-3 md:px-6 md:py-4 shadow-lg hover:bg-red-800 hover:text-white transition-all">
+            <span class="font-medium">Tel: 06 79 96 37 53</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
