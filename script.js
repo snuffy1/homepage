@@ -424,3 +424,46 @@ if (processSection) {
     );
 }
 
+// Toggle Hidden Content (Open/Close)
+const readExcerptBtn = document.querySelector('#read-excerpt-btn');
+const hiddenContent = document.querySelector('#hidden-content');
+
+if (readExcerptBtn && hiddenContent) {
+    readExcerptBtn.addEventListener('click', () => {
+        const isHidden = hiddenContent.classList.contains('hidden');
+        const btnText = readExcerptBtn.querySelector('span');
+
+        if (isHidden) {
+            // OPEN
+            hiddenContent.classList.remove('hidden');
+            
+            // Animate: Height 0->Auto, Opacity 0->1, Y 50->0
+            gsap.fromTo(hiddenContent, 
+                { height: 0, opacity: 0, y: 50 },
+                { height: "auto", opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+            );
+
+            // Update text
+            if(btnText) btnText.textContent = "Close excerpt";
+
+        } else {
+            // CLOSE
+            gsap.to(hiddenContent, {
+                height: 0,
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                ease: "power2.in",
+                onComplete: () => {
+                    hiddenContent.classList.add('hidden');
+                    // Reset styling for next open to prevent conflicts
+                    gsap.set(hiddenContent, { clearProps: "all" });
+                    hiddenContent.classList.add('hidden'); 
+                }
+            });
+
+            // Revert text
+            if(btnText) btnText.textContent = "Read an excerpt";
+        }
+    });
+}
